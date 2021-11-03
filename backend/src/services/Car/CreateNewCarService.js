@@ -1,10 +1,9 @@
-import Car from '../models/Car';
-import AppError from '../errors/AppError';
+import Car from '../../models/Car';
+import AppError from '../../errors/AppError';
 
 class CreateNewCarService {
   async execute({ nome, marca, modelo, preco, foto }) {
-    try {
-      // tratar erro de falta de informações
+    if (nome && marca && modelo && preco) {
       const newCar = await Car.create({
         nome,
         marca,
@@ -14,9 +13,8 @@ class CreateNewCarService {
       });
 
       return newCar;
-    } catch (error) {
-      throw new AppError('Ocorreu algum erro na criação de um novo carro.');
     }
+    throw new AppError('Falta de dados para criação do novo carro.');
   }
 }
 

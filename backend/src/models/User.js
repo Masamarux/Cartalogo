@@ -1,8 +1,8 @@
 import { DataTypes, literal } from 'sequelize';
 import connection from '../database';
 
-const Car = connection.define(
-  'Car',
+const User = connection.define(
+  'User',
   {
     id: {
       type: DataTypes.UUID,
@@ -10,27 +10,27 @@ const Car = connection.define(
       allowNull: false,
       primaryKey: true,
     },
-    nome: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    marca: {
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    modelo: {
+    password: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    preco: {
-      type: DataTypes.DOUBLE,
-      allowNull: false,
+    is_admin: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     foto: DataTypes.STRING,
   },
   {
-    tableName: 'cars',
+    tableName: 'users',
   },
 );
 
-export default Car;
+export default User;

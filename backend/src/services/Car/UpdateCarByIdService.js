@@ -1,4 +1,4 @@
-import Car from '../models/Car';
+import Car from '../../models/Car';
 
 class UpdateCarByIdService {
   async execute({ id, nome, marca, modelo, preco, foto }) {

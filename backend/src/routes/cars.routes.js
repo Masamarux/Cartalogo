@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
 import Car from '../models/Car';
-import CreateNewCarService from '../services/CreateNewCarService';
-import UpdateCarByIdService from '../services/UpdateCarByIdService';
-import DestroyCarService from '../services/DestroyCarService';
+import CreateNewCarService from '../services/Car/CreateNewCarService';
+import UpdateCarByIdService from '../services/Car/UpdateCarByIdService';
+import DestroyCarService from '../services/Car/DestroyCarService';
 
 const carsRouter = Router();
 

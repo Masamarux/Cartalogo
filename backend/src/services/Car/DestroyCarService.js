@@ -1,5 +1,5 @@
-import Car from '../models/Car';
-import AppError from '../errors/AppError';
+import Car from '../../models/Car';
+import AppError from '../../errors/AppError';
 
 class DestroyCarService {
   async execute({ id }) {
