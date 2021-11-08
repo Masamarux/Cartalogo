@@ -120,7 +120,7 @@ yarn start ou npx react-native start
  - Requisições foram feitas usando Axios;
  - Além de algumas bibliotecas menores para usos específicos.
 
-### Possíveis problemas
+## Possíveis problemas
  - O picker de imagens no emulador do android parece não funcionar, mesmo dando o comando e permissão ao aplicativo para acessar a câmera e a biblioteca de imagens, o emulador acaba retornando um erro e não é possível realizar a atualização de fotos para a api.
 
 ## Autor
