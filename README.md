@@ -91,7 +91,7 @@ Em caso de iOS:
 yarn ios ou npx react-native run-ios
 ```
 
-E então possívelmente você estaráa vendo Home do Cartálogo, caso tenha ocorrido algum erro ou o comando de android ou ios não tenha aberto um novo terminal para o metro realize o seguinte comando:
+E então possívelmente você estará vendo Home do Cartálogo, caso tenha ocorrido algum erro ou o comando de android ou ios não tenha aberto um novo terminal para o metro realize o seguinte comando:
 
 ```
 yarn start ou npx react-native start
