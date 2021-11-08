@@ -106,4 +106,13 @@ dist
 
 temp/*
 !temp/.gitkeep
-!temp/seed-+
+!temp/seed-autoescola.jpg
+!temp/seed-batman.jpg
+!temp/seed-carro-do-toretto.jpg
+!temp/seed-carro-do-uber.jpg
+!temp/seed-corsa-rebaixado.jpg
+!temp/seed-fusca-azul.jpg
+!temp/seed-mitsubishi-forklift.jpg
+!temp/seed-tesla-cybertruck.jpg
+!temp/seed-uno-com-escada.jpg
+!temp/seed-uno-amarelo.jpg

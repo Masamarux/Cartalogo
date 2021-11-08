@@ -15,7 +15,7 @@ module.exports = {
           updated_at: new Date(),
         },
         {
-          nome: 'Carro do Batman',
+          nome: 'Batmóvel',
           marca: 'BruceMotors',
           modelo: 'Classic',
           preco: 1000000.0,
@@ -64,7 +64,7 @@ module.exports = {
           marca: 'Mitsubishi',
           modelo: 'FD20N3',
           preco: 400000.36,
-          foto: 'seed-mitsubishi-forklift.jpeg',
+          foto: 'seed-mitsubishi-forklift.jpg',
           created_at: new Date(),
           updated_at: new Date(),
         },
