@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   database: process.env.DB_DATABASE,
   username: process.env.DB_USERNAME,
@@ -10,4 +12,5 @@ module.exports = {
     timestamps: true,
     underscored: true,
   },
+  seederStorage: 'sequelize',
 };

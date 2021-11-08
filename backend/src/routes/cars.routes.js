@@ -1,11 +1,17 @@
 import { Router } from 'express';
+import multer from 'multer';
+import uploadConfig from '../config/upload';
 
 import Car from '../models/Car';
 import CreateNewCarService from '../services/Car/CreateNewCarService';
 import UpdateCarByIdService from '../services/Car/UpdateCarByIdService';
+import UpdateCarImageService from '../services/Car/UpdateCarImageService';
 import DestroyCarService from '../services/Car/DestroyCarService';
 
+import ensureAuthentication from '../middlewares/ensureAuthentication';
+
 const carsRouter = Router();
+const upload = multer(uploadConfig);
 
 carsRouter.get('/', async (request, response) => {
   const cars = await Car.findAll();
@@ -13,23 +19,29 @@ carsRouter.get('/', async (request, response) => {
   return response.json(cars);
 });
 
-carsRouter.post('/', async (request, response) => {
-  const { nome, marca, modelo, preco, foto } = request.body;
+carsRouter.post(
+  '/',
+  ensureAuthentication,
+  upload.single('foto'),
+  async (request, response) => {
+    const { nome, marca, modelo, preco } = request.body;
+    const foto = request.file?.filename;
 
-  const createNewCarService = new CreateNewCarService();
+    const createNewCarService = new CreateNewCarService();
 
-  const car = await createNewCarService.execute({
-    nome,
-    marca,
-    modelo,
-    preco,
-    foto,
-  });
+    const car = await createNewCarService.execute({
+      nome,
+      marca,
+      modelo,
+      preco,
+      foto: foto || null,
+    });
 
-  return response.json(car);
-});
+    return response.json(car);
+  },
+);
 
-carsRouter.put('/:id', async (request, response) => {
+carsRouter.put('/:id', ensureAuthentication, async (request, response) => {
   const carId = request.params.id;
   const { nome, marca, modelo, preco, foto } = request.body;
 
@@ -47,7 +59,24 @@ carsRouter.put('/:id', async (request, response) => {
   return response.json(updatedCar);
 });
 
-carsRouter.delete('/:id', async (request, response) => {
+carsRouter.patch(
+  '/:id/foto',
+  ensureAuthentication,
+  upload.single('foto'),
+  async (request, response) => {
+    const updateCarImage = new UpdateCarImageService();
+    const { id } = request.params;
+
+    const car = await updateCarImage.execute({
+      id,
+      fotoFileName: request.file.filename,
+    });
+
+    return response.json(car);
+  },
+);
+
+carsRouter.delete('/:id', ensureAuthentication, async (request, response) => {
   const { id } = request.params;
   const destroyCarService = new DestroyCarService();
 

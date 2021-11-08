@@ -27,6 +27,8 @@ class AuthenticateUserService {
       expiresIn,
     });
 
+    delete user.dataValues.password;
+
     return {
       user,
       token,

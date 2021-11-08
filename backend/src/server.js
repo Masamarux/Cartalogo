@@ -1,5 +1,4 @@
 import 'express-async-errors';
-import 'dotenv/config';
 import express from 'express';
 import cors from 'cors';
 import AppError from './errors/AppError';
@@ -11,6 +10,7 @@ const port = process.env.SERVER_PORT || 3333;
 
 app.use(cors());
 app.use(express.json());
+app.use('/images', express.static('temp'));
 app.use(routes);
 
 app.use((error, request, response, next) => {

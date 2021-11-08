@@ -27,6 +27,7 @@ const Car = connection.define(
       allowNull: false,
     },
     foto: DataTypes.STRING,
+    // adicionar um campo para se o carro está a venda ou não
   },
   {
     tableName: 'cars',
