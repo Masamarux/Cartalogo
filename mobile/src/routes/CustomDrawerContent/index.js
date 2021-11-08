@@ -2,8 +2,8 @@ import React from 'react';
 import {
   DrawerContentScrollView,
   DrawerItemList,
-  DrawerItem,
 } from '@react-navigation/drawer';
+import { useNavigation } from '@react-navigation/native';
 
 import { useAuth } from '../../hooks/auth';
 
@@ -21,6 +21,7 @@ import logo from '../../assets/logo.png';
 
 const CustomDrawerContent = (props) => {
   const { user, signOut } = useAuth();
+  const navigator = useNavigation();
 
   return (
     <DrawerContentScrollView {...props}>
@@ -30,7 +31,12 @@ const CustomDrawerContent = (props) => {
           <WelcomeText>Bem vindo ao Cartálogo!</WelcomeText>
           <UserName>{user.name}</UserName>
           <UserEmail>{user.email}</UserEmail>
-          <ButtonLogout onPress={signOut}>
+          <ButtonLogout
+            onPress={() => {
+              signOut();
+              navigator?.navigate('Home');
+            }}
+          >
             <ButtonLogoutText>Logout</ButtonLogoutText>
           </ButtonLogout>
         </UserContainer>

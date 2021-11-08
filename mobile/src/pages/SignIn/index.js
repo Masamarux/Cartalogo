@@ -13,12 +13,13 @@ import { useAuth } from '../../hooks/auth';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import GoBackButton from '../../components/GoBackButton';
 
 import { Container, Title, Form } from './styles';
 
 const SignIn = () => {
   const formRef = useRef(null);
-  const { signIn } = useAuth();
+  const { signIn, user } = useAuth();
   const navigator = useNavigation();
 
   const handleSignIn = useCallback(
@@ -63,37 +64,46 @@ const SignIn = () => {
           keyboardShouldPersistTaps="handled"
         >
           <Container>
-            <View>
-              <Title>Faça seu login</Title>
-            </View>
+            {!user ? (
+              <>
+                <View>
+                  <Title>Faça seu login</Title>
+                </View>
 
-            <Form ref={formRef} onSubmit={handleSignIn}>
-              <Input
-                autoCorrect={false}
-                autoCapitalize="none"
-                keyboardType="email-address"
-                returnKeyType="next"
-                name="email"
-                placeholder="E-mail"
-                icon="mail"
-              />
-              <Input
-                secureTextEntry
-                returnKeyType="send"
-                onSubmitEditing={() => {
-                  formRef.current?.submitForm();
-                }}
-                name="password"
-                placeholder="Senha"
-                icon="lock"
-              />
-              <Button onPress={() => formRef.current.submitForm()}>
-                Logar
-              </Button>
-            </Form>
+                <Form ref={formRef} onSubmit={handleSignIn}>
+                  <Input
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    returnKeyType="next"
+                    name="email"
+                    placeholder="E-mail"
+                    icon="mail"
+                  />
+                  <Input
+                    secureTextEntry
+                    returnKeyType="send"
+                    onSubmitEditing={() => {
+                      formRef.current?.submitForm();
+                    }}
+                    name="password"
+                    placeholder="Senha"
+                    icon="lock"
+                  />
+                  <Button onPress={() => formRef.current.submitForm()}>
+                    Logar
+                  </Button>
+                </Form>
+              </>
+            ) : (
+              <>
+                <Title>Você já está logado!</Title>
+              </>
+            )}
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
+      <GoBackButton onPress={() => navigator.goBack()}>Voltar</GoBackButton>
     </>
   );
 };

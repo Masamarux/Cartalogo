@@ -19,6 +19,14 @@ carsRouter.get('/', async (request, response) => {
   return response.json(cars);
 });
 
+carsRouter.get('/:id', async (request, response) => {
+  const { id } = request.params;
+
+  const car = await Car.findOne({ where: { id } });
+
+  return response.json(car);
+});
+
 carsRouter.post(
   '/',
   ensureAuthentication,
@@ -78,6 +86,7 @@ carsRouter.patch(
 
 carsRouter.delete('/:id', ensureAuthentication, async (request, response) => {
   const { id } = request.params;
+
   const destroyCarService = new DestroyCarService();
 
   const deleteMessage = await destroyCarService.execute({ id });

@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
+import Ripple from 'react-native-material-ripple';
+import Icon from 'react-native-vector-icons/Feather';
 
 export const Container = styled.View`
   flex: 1;
@@ -63,3 +66,21 @@ export const CarPreco = styled.Text`
   font-family: 'Nunito-Bold';
   color: #5065a8;
 `;
+
+export const CreateCarButton = styled(Ripple)`
+  height: 50px;
+  width: 50px;
+  background: #00ff7f;
+  border-width: 1px;
+  border-color: ${shade(0.2, '#00ff7f')};
+  border-radius: 25px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px;
+
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CreateCarButtonIcon = styled(Icon)``;

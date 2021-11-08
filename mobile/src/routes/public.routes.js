@@ -5,6 +5,9 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Home from '../pages/Home';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
+import CarInfo from '../pages/CarInfo';
+import CreateCar from '../pages/CreateCar';
+import UpdateCar from '../pages/UpdateCar';
 
 import CustomDrawerContent from './CustomDrawerContent';
 
@@ -14,7 +17,7 @@ const Drawer = createDrawerNavigator();
 const StackRoutes = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Cartálogo"
+      initialRouteName="Home"
       screenOptions={{
         headerShown: false,
       }}
@@ -22,6 +25,9 @@ const StackRoutes = () => {
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="CarInfo" component={CarInfo} />
+      <Stack.Screen name="CreateCar" component={CreateCar} />
+      <Stack.Screen name="UpdateCar" component={UpdateCar} />
     </Stack.Navigator>
   );
 };

@@ -22,6 +22,7 @@ function ensureAuthentication(request, response, next) {
 
     return next();
   } catch (error) {
+    console.log(error);
     throw new AppError('JWT inválido.', 403);
   }
 }

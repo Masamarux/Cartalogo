@@ -1,1 +1,0 @@
-# Cartálogo App

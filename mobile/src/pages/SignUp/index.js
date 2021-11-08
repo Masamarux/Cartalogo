@@ -14,12 +14,13 @@ import { useAuth } from '../../hooks/auth';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import GoBackButton from '../../components/GoBackButton';
 
 import { Container, Title, Form } from './styles';
 
 const SignUp = () => {
   const formRef = useRef(null);
-  // const {} = useAuth();
+  const { user } = useAuth();
   const navigator = useNavigation();
 
   const handleSignUp = useCallback(
@@ -63,44 +64,53 @@ const SignUp = () => {
           keyboardShouldPersistTaps="handled"
         >
           <Container>
-            <View>
-              <Title>Faça seu cadastro</Title>
-            </View>
+            {!user ? (
+              <>
+                <View>
+                  <Title>Faça seu cadastro</Title>
+                </View>
 
-            <Form ref={formRef} onSubmit={handleSignUp}>
-              <Input
-                autoCorrect={false}
-                autoCapitalize="words"
-                keyboardType="name-phone-pad"
-                name="name"
-                placeholder="Nome"
-                icon="user"
-              />
-              <Input
-                autoCorrect={false}
-                autoCapitalize="none"
-                keyboardType="email-address"
-                name="email"
-                placeholder="E-mail"
-                icon="mail"
-              />
-              <Input
-                secureTextEntry
-                returnKeyType="send"
-                onSubmitEditing={() => {
-                  formRef.current?.submitForm();
-                }}
-                name="password"
-                placeholder="Senha"
-                icon="lock"
-              />
-              <Button onPress={() => formRef.current.submitForm()}>
-                Cadastrar
-              </Button>
-            </Form>
+                <Form ref={formRef} onSubmit={handleSignUp}>
+                  <Input
+                    autoCorrect={false}
+                    autoCapitalize="words"
+                    keyboardType="name-phone-pad"
+                    name="name"
+                    placeholder="Nome"
+                    icon="user"
+                  />
+                  <Input
+                    autoCorrect={false}
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    name="email"
+                    placeholder="E-mail"
+                    icon="mail"
+                  />
+                  <Input
+                    secureTextEntry
+                    returnKeyType="send"
+                    onSubmitEditing={() => {
+                      formRef.current?.submitForm();
+                    }}
+                    name="password"
+                    placeholder="Senha"
+                    icon="lock"
+                  />
+                  <Button onPress={() => formRef.current.submitForm()}>
+                    Cadastrar
+                  </Button>
+                </Form>
+              </>
+            ) : (
+              <>
+                <Title>Você já está logado!</Title>
+              </>
+            )}
           </Container>
         </ScrollView>
       </KeyboardAvoidingView>
+      <GoBackButton onPress={() => navigator.goBack()}>Voltar</GoBackButton>
     </>
   );
 };
