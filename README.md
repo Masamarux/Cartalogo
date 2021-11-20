@@ -1,5 +1,7 @@
 # ![Cartálogo-logos_transparentSS](https://user-images.githubusercontent.com/45273884/140819171-48d96819-8236-42ab-82e0-6fd94f65af9e.png) Cártalogo
 
+![gif](https://user-images.githubusercontent.com/45273884/142741546-7ca73c4e-bb6f-4410-9dcc-48d52ecc28a2.gif)
+
 ## Descrição
 
 Este é Cartálogo, um teste prático feito com o intuito de participar de um processo seletivo onde se deve ser contruído uma aplicação mobile que consiga ser alimentada por um backend fornecendo dados de carros e assim o frontend possa além de listar esses dados também criar, alterar ou excluí-los desde que o usuário esteja devidamente logado e autenticado no sistema.
