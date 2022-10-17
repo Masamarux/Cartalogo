@@ -1,4 +1,4 @@
-# ![Cartálogo-logos_transparentSS](https://user-images.githubusercontent.com/45273884/140819171-48d96819-8236-42ab-82e0-6fd94f65af9e.png) Cártalogo
+# ![Cartálogo-logos_transparentSS](https://user-images.githubusercontent.com/45273884/140819171-48d96819-8236-42ab-82e0-6fd94f65af9e.png) Cartálogo
 
 ![gif](https://user-images.githubusercontent.com/45273884/142741546-7ca73c4e-bb6f-4410-9dcc-48d52ecc28a2.gif)
 
